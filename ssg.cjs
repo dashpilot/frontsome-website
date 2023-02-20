@@ -34,6 +34,7 @@ async function renderPage() {
     <link rel="stylesheet" href="/assets/index.css">
     </head>
     <body>
+    
     <div id="app">
     
       ${html}

@@ -107,6 +107,21 @@
 </nav>
 -->
 
+ <div class="container">
+<header class="text-center">
+  <h1><a href="/">Frontsome.</a></h1>
+
+  <div class="intro">
+    <p>Awesome tools for front-end developers</p>
+  </div>
+
+  <nav>
+    <a href="/" data-navigo>Home</a>
+    <a href="/about" data-navigo>About</a>
+    <a href="/blog" data-navigo>Blog</a>
+  </nav>
+</header>
+
 <div class="main mt-5">
   
  {#if entries}
@@ -123,4 +138,5 @@
   <p>Not Found</p>
  {/if}
  
+</div>
 </div>
