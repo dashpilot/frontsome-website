@@ -82,7 +82,7 @@ nav a {
 
 .code pre {
   padding: 25px;
-  padding-bottom: 5px;
+  margin: 0;
 }
 
 .intro {

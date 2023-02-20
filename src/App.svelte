@@ -1,8 +1,7 @@
 <script>
   import { onMount } from 'svelte';
   import Navigo from "navigo";
-  import Prism from 'svelte-prism'
-  
+
   export let data;
   let router;
   let entries;
@@ -12,8 +11,10 @@
     console.log('Frontsome is a library and blog')
     console.log('about awesome front-end projects.')
   }`
-
   
+  let mycode = ""
+
+
   if(data && data.ssr && data.isPage){      
     entries = data.entries.filter(x=>x.page==data.page)
   }
@@ -71,6 +72,16 @@
         data = data;
         entries = data.entries.filter(x=>x.page==mydata.page)
       }
+      
+   
+      
+      shiki
+        .getHighlighter({
+          theme: 'nord'
+        })
+        .then(highlighter => {
+          mycode = highlighter.codeToHtml(code, { lang: 'js' })
+        })
     
   });
   
@@ -131,15 +142,12 @@
 
 <div class="main mt-5">
   
-  
+  <div class="code">{@html mycode}</div>
   
  {#if entries}
    {#each entries as item}
-   
-  
-   
-   <Prism language="javascript" source="{code}" />
-   
+
+
      <section class="editable" id="{item.id}" data-fields="title=txt&amp;body=rte&amp;image=img&amp;delete=del">
      <h2><a href="/article/{slugify(item.title, item.id)}" data-navigo>{item.title}</a></h2>
      {@html item.body}
