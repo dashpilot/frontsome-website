@@ -126,7 +126,7 @@
 
  <div class="container">
 <header class="text-center">
-  <h1><a href="/">Frontsome.</a></h1>
+  <h1><a href="/" data-navigo>Frontsome.</a></h1>
 
   <div class="intro">
     <p>Awesome tools for front-end developers</p>
