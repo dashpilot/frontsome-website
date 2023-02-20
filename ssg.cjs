@@ -37,16 +37,7 @@ async function renderPage() {
       integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
       crossorigin="anonymous"
     />
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Playfair+Display:wght@500&display=swap"
-      rel="stylesheet"
-    />
-    
-    
-    <!-- <script type="module" crossorigin src="/assets/index.js"></script> -->
+   
     <link rel="stylesheet" href="/assets/index.css">
     </head>
     <body>
@@ -98,15 +89,7 @@ async function renderPage() {
       integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
       crossorigin="anonymous"
     />
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Playfair+Display:wght@500&display=swap"
-      rel="stylesheet"
-    />
-    
-    <!-- <script type="module" crossorigin src="/assets/index.js"></script> -->
+
     <link rel="stylesheet" href="/assets/index.css">
     </head>
     <body>
