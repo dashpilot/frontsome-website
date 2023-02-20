@@ -1,12 +1,7 @@
 <script>
- 
-  
   import { onMount } from 'svelte';
   import Navigo from "navigo";
-  
-  import Highlight from "svelte-highlight";
-  import javascript from "svelte-highlight/languages/javascript";
-  import github from "svelte-highlight/styles/github";
+  import Prism from 'svelte-prism'
   
   export let data;
   let router;
@@ -141,7 +136,9 @@
  {#if entries}
    {#each entries as item}
    
-   <div id="code" class="code mt-2"><Highlight language={javascript} {code} /></div>
+  
+   
+   <Prism language="javascript" source="{code}" />
    
      <section class="editable" id="{item.id}" data-fields="title=txt&amp;body=rte&amp;image=img&amp;delete=del">
      <h2><a href="/article/{slugify(item.title, item.id)}" data-navigo>{item.title}</a></h2>
