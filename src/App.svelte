@@ -2,10 +2,20 @@
   import { onMount } from 'svelte';
   import Navigo from "navigo";
   
+  import Highlight from "svelte-highlight";
+  import javascript from "svelte-highlight/languages/javascript";
+  import github from "svelte-highlight/styles/github";
+  
   export let data;
   let router;
   let entries;
   let notfound = false;
+  
+  let code = `const about = () => {
+    console.log('Frontsome is a library and blog')
+    console.log('about awesome front-end projects.')
+  }`
+
   
   if(data && data.ssr && data.isPage){      
     entries = data.entries.filter(x=>x.page==data.page)
@@ -124,8 +134,13 @@
 
 <div class="main mt-5">
   
+  
+  
  {#if entries}
    {#each entries as item}
+   
+   <div id="code" class="code mt-2"><Highlight language={javascript} {code} /></div>
+   
      <section class="editable" id="{item.id}" data-fields="title=txt&amp;body=rte&amp;image=img&amp;delete=del">
      <h2><a href="/article/{slugify(item.title, item.id)}" data-navigo>{item.title}</a></h2>
      {@html item.body}
