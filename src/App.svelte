@@ -147,6 +147,9 @@
 
 
      <section class="editable" id="{item.id}" data-fields="title=txt&amp;body=rte&amp;image=img&amp;delete=del">
+       
+       {#if item.image}<img src="{item.image}" class="mb-4 w-100" />{/if}
+       
      <h2><a href="/article/{slugify(item.title, item.id)}" data-navigo>{item.title}</a></h2>
      {@html item.body}
      </section>
