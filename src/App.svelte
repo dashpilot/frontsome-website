@@ -75,13 +75,7 @@
       
    
       
-      shiki
-        .getHighlighter({
-          theme: 'nord'
-        })
-        .then(highlighter => {
-          mycode = highlighter.codeToHtml(code, { lang: 'js' })
-        })
+   
     
   });
   
@@ -107,6 +101,18 @@
     
         return str;
   }
+  
+  async function loadShiki(){
+    shiki
+    .getHighlighter({
+      theme: 'nord'
+    })
+    .then(highlighter => {
+      mycode = highlighter.codeToHtml(code, { lang: 'js' })
+    })
+  }
+  
+  loadShiki();
  
 
 </script>

@@ -1,6 +1,7 @@
 require("svelte");
 require("svelte/register");
 const fs = require("fs");
+const shiki = require("shiki");
 
 const Page = require("./src/App.svelte").default;
 async function renderPage() {
