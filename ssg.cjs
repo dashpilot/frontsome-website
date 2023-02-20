@@ -1,7 +1,6 @@
 require("svelte");
 require("svelte/register");
 const fs = require("fs");
-const shiki = require("shiki");
 
 const Page = require("./src/App.svelte").default;
 async function renderPage() {
@@ -40,6 +39,8 @@ async function renderPage() {
     />
    
     <link rel="stylesheet" href="/assets/index.css">
+    
+    <script type="module" crossorigin src="/assets/index.js"></script>
     </head>
     <body>
     
@@ -92,6 +93,8 @@ async function renderPage() {
     />
 
     <link rel="stylesheet" href="/assets/index.css">
+    
+    <script type="module" crossorigin src="/assets/index.js"></script>
     </head>
     <body>
     <div id="app">

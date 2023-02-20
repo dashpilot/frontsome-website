@@ -100,19 +100,12 @@
             .replace(/-+/g, '-'); // collapse dashes
     
         return str;
+        
+        
+          
+        
   }
-  
-  async function loadShiki(){
-    shiki
-    .getHighlighter({
-      theme: 'nord'
-    })
-    .then(highlighter => {
-      mycode = highlighter.codeToHtml(code, { lang: 'js' })
-    })
-  }
-  
-  loadShiki();
+
  
 
 </script>
@@ -147,8 +140,7 @@
 </header>
 
 <div class="main mt-5">
-  
-  <div class="code">{@html mycode}</div>
+
   
  {#if entries}
    {#each entries as item}
