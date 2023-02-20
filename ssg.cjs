@@ -2,6 +2,9 @@ require("svelte");
 require("svelte/register");
 const fs = require("fs");
 
+import { createRequire } from "module";
+const require = createRequire(import.meta.url);
+
 const Page = require("./src/App.svelte").default;
 async function renderPage() {
   const SSR = true;
