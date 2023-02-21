@@ -127,9 +127,9 @@
     {#if data}
       {#each data.categories as item}
       {#if item.slug=='home'}
-      <a href="/" data-navigo>{item.name}</a>
+      <a href="/" data-navigo>{item.title}</a>
       {:else}
-      <a href="/{item.slug}" data-navigo>{item.name}</a>
+      <a href="/{item.slug}" data-navigo>{item.title}</a>
       {/if}
       {/each}
     {/if}
