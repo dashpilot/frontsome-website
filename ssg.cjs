@@ -110,8 +110,12 @@ async function renderCat() {
     </html>
     `;
 
-    fs.mkdirSync("dist/article/" + slug);
-    fs.writeFileSync("dist/article/" + slug + "/index.html", fullHtml, "utf-8");
+    fs.mkdirSync("dist/" + item.category + "/" + slug);
+    fs.writeFileSync(
+      "dist/" + item.category + "/" + slug + "/index.html",
+      fullHtml,
+      "utf-8"
+    );
   }
 }
 

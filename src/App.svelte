@@ -46,7 +46,7 @@
     })
     
     data.posts.forEach(item=>{
-      router.on("/article/"+slugify(item.title, item.id), async function () {
+      router.on(item.category+"/"+slugify(item.title, item.id), async function () {
         console.log("about")
         notfound = false;
         posts = data.posts.filter(x=>x.id==item.id)
