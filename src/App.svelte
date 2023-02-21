@@ -110,19 +110,6 @@
 
 </script>
 
-<!--
-<nav>
-  {#if data}
-    {#each data.pages as item}
-    {#if item.slug=='home'}
-    <a href="/" data-navigo>{item.name}</a>
-    {:else}
-    <a href="/{item.slug}" data-navigo>{item.name}</a>
-    {/if}
-    {/each}
-  {/if}
-</nav>
--->
 
  <div class="container">
 <header class="text-center">
@@ -133,9 +120,15 @@
   </div>
 
   <nav>
-    <a href="/" data-navigo>Home</a>
-    <a href="/about" data-navigo>About</a>
-    <a href="/blog" data-navigo>Blog</a>
+    {#if data}
+      {#each data.pages as item}
+      {#if item.slug=='home'}
+      <a href="/" data-navigo>{item.name}</a>
+      {:else}
+      <a href="/{item.slug}" data-navigo>{item.name}</a>
+      {/if}
+      {/each}
+    {/if}
   </nav>
 </header>
 
