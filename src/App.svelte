@@ -91,6 +91,7 @@
      }else{
        mycat = parts[1]
      }
+     console.log(mycat)
   }
   
   function slugify(str, id){
