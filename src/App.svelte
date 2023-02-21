@@ -36,7 +36,7 @@
       notfound = false;
       posts = data.posts.filter(x=>x.category=='home')
       
-      getPage('home')
+      window.category = 'home';
     });
     
     data.categories.forEach(item=>{
@@ -45,7 +45,7 @@
         notfound = false;
         posts = data.posts.filter(x=>x.category==item.slug)
         
-        getPage(item.slug)
+        window.category  = item.slug;
       });
     })
     
@@ -56,7 +56,7 @@
         notfound = false;
         posts = data.posts.filter(x=>x.id==item.id)
         
-        getPage(item.category)
+        window.category  = item.category;
       });
     })
     
