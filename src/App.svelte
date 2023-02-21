@@ -36,7 +36,7 @@
       notfound = false;
       posts = data.posts.filter(x=>x.category=='home')
       
-      getPage()
+      getPage('home')
     });
     
     data.categories.forEach(item=>{
@@ -45,7 +45,7 @@
         notfound = false;
         posts = data.posts.filter(x=>x.category==item.slug)
         
-        getPage()
+        getPage(item.slug)
       });
     })
     
@@ -56,7 +56,7 @@
         notfound = false;
         posts = data.posts.filter(x=>x.id==item.id)
         
-        getPage()
+        getPage(item.category)
       });
     })
     
@@ -81,17 +81,8 @@
 
   });
   
-  function getPage(){
-    var parts = window.location.pathname.split('/')
-    console.log(parts)
-     console.log(parts.length)
-     var mycat = "";
-     if(parts.length<2){
-       mycat = "home";
-     }else{
-       mycat = parts[1]
-     }
-     console.log(mycat)
+  function getPage(page){
+   console.log("curpage: "+page)
   }
   
   function slugify(str, id){

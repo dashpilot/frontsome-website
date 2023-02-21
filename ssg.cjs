@@ -74,7 +74,7 @@ async function renderCat() {
     data.id = item.id;
 
     data.isCat = false;
-    data.isEntry = true;
+    data.isPost = true;
     // console.log(data);
 
     const { html, css, head } = Page.render({
