@@ -110,12 +110,14 @@ async function renderCat() {
     </html>
     `;
 
-    fs.mkdirSync("dist/" + item.category + "/" + slug);
-    fs.writeFileSync(
-      "dist/" + item.category + "/" + slug + "/index.html",
-      fullHtml,
-      "utf-8"
-    );
+    if (typeof item.category !== "undefined") {
+      fs.mkdirSync("dist/" + item.category + "/" + slug);
+      fs.writeFileSync(
+        "dist/" + item.category + "/" + slug + "/index.html",
+        fullHtml,
+        "utf-8"
+      );
+    }
   }
 }
 
