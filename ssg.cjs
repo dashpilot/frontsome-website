@@ -3,7 +3,7 @@ require("svelte/register");
 const fs = require("fs");
 
 const Page = require("./src/App.svelte").default;
-async function renderPage() {
+async function renderCat() {
   const SSR = true;
 
   const res = await fetch(
@@ -13,10 +13,10 @@ async function renderPage() {
 
   data.ssr = true;
 
-  for (item of data.pages) {
-    data.page = item.slug;
-    data.isPage = true;
-    data.isEntry = false;
+  for (item of data.categories) {
+    data.categories = item.slug;
+    data.isCat = true;
+    data.isPost = false;
     // console.log(data);
 
     const { html, css, head } = Page.render({
@@ -53,21 +53,25 @@ async function renderPage() {
     </html>
     `;
 
-    if (data.page == "home") {
+    if (data.category == "home") {
       fs.writeFileSync("dist/index.html", fullHtml, "utf-8");
     } else {
-      fs.mkdirSync("dist/" + data.page);
-      fs.writeFileSync("dist/" + data.page + "/index.html", fullHtml, "utf-8");
+      fs.mkdirSync("dist/" + data.category);
+      fs.writeFileSync(
+        "dist/" + data.category + "/index.html",
+        fullHtml,
+        "utf-8"
+      );
     }
   }
 
   fs.mkdirSync("dist/article/");
 
-  for (item of data.entries) {
-    data.page = item.page;
+  for (item of data.posts) {
+    data.category = item.category;
     data.id = item.id;
 
-    data.isPage = false;
+    data.isCat = false;
     data.isEntry = true;
     // console.log(data);
 
@@ -111,7 +115,7 @@ async function renderPage() {
   }
 }
 
-renderPage();
+renderCat();
 
 function slugify(str, id) {
   if (str.length < 3) {

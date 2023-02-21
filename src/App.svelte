@@ -4,7 +4,7 @@
 
   export let data;
   let router;
-  let entries;
+  let posts;
   let notfound = false;
   
   let code = `const about = () => {
@@ -15,11 +15,11 @@
   let mycode = ""
 
 
-  if(data && data.ssr && data.isPage){      
-    entries = data.entries.filter(x=>x.page==data.page)
+  if(data && data.ssr && data.isCat){      
+    posts = data.posts.filter(x=>x.categoy==data.category)
   }
-  if(data && data.ssr && data.isEntry){      
-    entries = data.entries.filter(x=>x.id==data.id)
+  if(data && data.ssr && data.isPost){      
+    posts = data.posts.filter(x=>x.id==data.id)
   }
   
   onMount(async () => {
@@ -34,22 +34,22 @@
     router.on("/", async function () {
       console.log("home")
       notfound = false;
-      entries = data.entries.filter(x=>x.page=='home')
+      posts = data.posts.filter(x=>x.category=='home')
     });
     
-    data.pages.forEach(item=>{
+    data.categories.forEach(item=>{
       router.on("/"+item.slug, async function () {
         console.log("about")
         notfound = false;
-        entries = data.entries.filter(x=>x.page==item.slug)
+        posts = data.posts.filter(x=>x.category==item.slug)
       });
     })
     
-    data.entries.forEach(item=>{
+    data.posts.forEach(item=>{
       router.on("/article/"+slugify(item.title, item.id), async function () {
         console.log("about")
         notfound = false;
-        entries = data.entries.filter(x=>x.id==item.id)
+        posts = data.posts.filter(x=>x.id==item.id)
       });
     })
     
@@ -70,7 +70,7 @@
         console.log('updating')
         data = mydata;
         data = data;
-        entries = data.entries.filter(x=>x.page==mydata.page)
+        posts = data.posts.filter(x=>x.category==mydata.category)
       }
       
    
@@ -121,7 +121,7 @@
 
   <nav>
     {#if data}
-      {#each data.pages as item}
+      {#each data.categories as item}
       {#if item.slug=='home'}
       <a href="/" data-navigo>{item.name}</a>
       {:else}
@@ -135,8 +135,8 @@
 <div class="main mt-5">
 
   
- {#if entries}
-   {#each entries as item}
+ {#if posts}
+   {#each posts as item}
 
 
      <section class="editable" id="{item.id}" data-fields="title=txt&amp;body=rte&amp;image=img&amp;delete=del">
