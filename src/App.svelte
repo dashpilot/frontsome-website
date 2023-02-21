@@ -62,6 +62,16 @@
     
     setTimeout(()=>{
       router.resolve();
+      
+      
+      var parts = window.location.pathname.split('/')
+      console.log(parts)
+       console.log(parts.length)
+       if(parts.length<2){
+         item.category = "home";
+       }else{
+         item.category = parts[1]
+       }
     }, 50)
     
    
