@@ -112,7 +112,7 @@ async function renderCat() {
     </html>
     `;
 
-    if (typeof item.category !== "undefined") {
+    if (typeof item.category !== "undefined" && item.category !== "") {
       /*
       if (data.category == "home") {
         fs.mkdirSync("dist/home");
