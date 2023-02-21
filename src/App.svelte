@@ -39,8 +39,7 @@
     
     data.categories.forEach(item=>{
       router.on("/"+item.slug, async function () {
-        console.log(window.location.pathname.split('/'))
-        console.log(window.location.pathname.split('/').length);
+      
         notfound = false;
         posts = data.posts.filter(x=>x.category==item.slug)
       });
@@ -48,8 +47,7 @@
     
     data.posts.forEach(item=>{
       router.on(item.category+"/"+slugify(item.title, item.id), async function () {
-        console.log(window.location.pathname.split('/'))
-        console.log(window.location.pathname.split('/').length);
+     
         
         notfound = false;
         posts = data.posts.filter(x=>x.id==item.id)
