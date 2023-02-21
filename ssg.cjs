@@ -116,12 +116,15 @@ async function renderCat() {
       if (data.category == "home") {
         fs.mkdirSync("dist/home");
       }
-      fs.mkdirSync("dist/" + item.category + "/" + slug);
-      fs.writeFileSync(
-        "dist/" + item.category + "/" + slug + "/index.html",
-        fullHtml,
-        "utf-8"
-      );
+
+      if (fs.existsSync("dist/" + item.category)) {
+        fs.mkdirSync("dist/" + item.category + "/" + slug);
+        fs.writeFileSync(
+          "dist/" + item.category + "/" + slug + "/index.html",
+          fullHtml,
+          "utf-8"
+        );
+      }
     }
   }
 }
