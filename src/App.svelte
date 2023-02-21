@@ -35,6 +35,8 @@
       console.log("home")
       notfound = false;
       posts = data.posts.filter(x=>x.category=='home')
+      
+      getPage()
     });
     
     data.categories.forEach(item=>{
@@ -42,6 +44,8 @@
       
         notfound = false;
         posts = data.posts.filter(x=>x.category==item.slug)
+        
+        getPage()
       });
     })
     
@@ -51,6 +55,8 @@
         
         notfound = false;
         posts = data.posts.filter(x=>x.id==item.id)
+        
+        getPage()
       });
     })
     
@@ -62,16 +68,6 @@
     
     setTimeout(()=>{
       router.resolve();
-      
-      
-      var parts = window.location.pathname.split('/')
-      console.log(parts)
-       console.log(parts.length)
-       if(parts.length<2){
-         item.category = "home";
-       }else{
-         item.category = parts[1]
-       }
     }, 50)
     
    
@@ -84,6 +80,18 @@
       });
 
   });
+  
+  function getPage(){
+    var parts = window.location.pathname.split('/')
+    console.log(parts)
+     console.log(parts.length)
+     var mycat = "";
+     if(parts.length<2){
+       mycat = "home";
+     }else{
+       mycat = parts[1]
+     }
+  }
   
   function slugify(str, id){
     
