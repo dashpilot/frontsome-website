@@ -66,22 +66,13 @@
     
    
       // this allows you to update the data externally
-      window.update = (mydata) => {
-        console.log(mydata)
-        console.log('updating')
-        data = mydata;
-        data = data;
-        posts = data.posts.filter(x=>x.category==mydata.category)
-      }
-      
       document.body.addEventListener("update", (e) => {
-         console.log(e.detail)
+         var mydata = e.detail;
+         data = mydata;
+         data = data;
+         posts = data.posts.filter(x=>x.category==mydata.category)
       });
 
-   
-      
-   
-    
   });
   
   function slugify(str, id){
