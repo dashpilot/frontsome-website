@@ -74,6 +74,10 @@
         posts = data.posts.filter(x=>x.category==mydata.category)
       }
       
+      document.body.addEventListener("update", (e) => {
+         console.log(e.detail)
+      });
+
    
       
    
