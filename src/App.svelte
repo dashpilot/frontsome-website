@@ -50,7 +50,7 @@
     })
     
     data.posts.forEach(item=>{
-      router.on(item.category+"/"+slugify(item.title, item.id), async function () {
+      router.on("article/"+slugify(item.title, item.id), async function () {
      
         
         notfound = false;

@@ -112,22 +112,8 @@ async function renderCat() {
     </html>
     `;
 
-    if (typeof item.category !== "undefined" && item.category !== "") {
-      /*
-      if (data.category == "home") {
-        fs.mkdirSync("dist/home");
-      }
-      */
-
-      if (fs.existsSync("dist/" + item.category)) {
-        fs.mkdirSync("dist/" + item.category + "/" + slug);
-        fs.writeFileSync(
-          "dist/" + item.category + "/" + slug + "/index.html",
-          fullHtml,
-          "utf-8"
-        );
-      }
-    }
+    fs.mkdirSync("dist/article/" + slug);
+    fs.writeFileSync("dist/article/" + slug + "/index.html", fullHtml, "utf-8");
   }
 }
 
