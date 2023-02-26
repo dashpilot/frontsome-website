@@ -1,5 +1,6 @@
 <script>
   import { onMount } from 'svelte';
+  import { tick } from 'svelte';
   import Navigo from "navigo";
 
   export let data;
@@ -36,7 +37,7 @@
       notfound = false;
       posts = data.posts.filter(x=>x.category=='home')
       
-      window.category = 'home';
+      hydrate('home')
     });
     
     data.categories.forEach(item=>{
@@ -45,7 +46,7 @@
         notfound = false;
         posts = data.posts.filter(x=>x.category==item.slug)
         
-        window.category  = item.slug;
+        hydrate(item.slug);
       });
     })
     
@@ -56,7 +57,7 @@
         notfound = false;
         posts = data.posts.filter(x=>x.id==item.id)
         
-        window.category  = item.category;
+        hydrate(item.category);
       });
     })
     
@@ -80,6 +81,15 @@
       });
 
   });
+  
+  async function hydrate(category){
+    
+    // make sure navigo updates the links on the page after the page has rendered
+    await tick();
+    
+    window.category = category;
+    router.updatePageLinks()
+  }
   
   function getPage(page){
    console.log("curpage: "+page)
