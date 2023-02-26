@@ -111,8 +111,9 @@ async function renderCat() {
     </body>
     </html>
     `;
-
-    fs.mkdirSync("dist/article/" + slug);
+    if (!fs.existsSync("dist/article/" + slug)) {
+      fs.mkdirSync("dist/article/" + slug);
+    }
     fs.writeFileSync("dist/article/" + slug + "/index.html", fullHtml, "utf-8");
   }
 }
