@@ -147,7 +147,7 @@
        
        {#if item.image}<img src="{item.image}" class="mb-4 w-100" />{/if}
        
-     <h2><a href="/{item.category}/{slugify(item.title, item.id)}" data-navigo>{item.title}</a></h2>
+     <h2><a href="/article/{slugify(item.title, item.id)}" data-navigo>{item.title}</a></h2>
      {@html item.body}
      </section>
    {/each}
