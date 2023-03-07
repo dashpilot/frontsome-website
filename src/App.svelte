@@ -17,7 +17,7 @@
 
 
   if(data && data.ssr && data.isCat){      
-    posts = data.posts.filter(x=>x.categoy==data.category)
+    posts = data.posts.filter(x=>x.category==data.category)
   }
   if(data && data.ssr && data.isPost){      
     posts = data.posts.filter(x=>x.id==data.id)
@@ -35,7 +35,7 @@
     router.on("/", async function () {
       console.log("home")
       notfound = false;
-      posts = data.posts.filter(x=>x.category=='home')
+      posts = data.posts.filter(x=>x.category==1)
       
       hydrate('home')
     });
@@ -44,7 +44,7 @@
       router.on("/"+item.slug, async function () {
       
         notfound = false;
-        posts = data.posts.filter(x=>x.category==item.slug)
+        posts = data.posts.filter(x=>x.category==item.id)
         
         hydrate(item.slug);
       });
