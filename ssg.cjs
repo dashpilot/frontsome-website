@@ -15,6 +15,7 @@ async function renderCat() {
 
   for (item of data.categories) {
     data.category = item.id;
+    data.slug = item.slug;
     data.isCat = true;
     data.isPost = false;
     // console.log(data);
@@ -53,13 +54,13 @@ async function renderCat() {
     </html>
     `;
 
-    if (data.category == "home") {
+    if (data.slug == "home") {
       fs.writeFileSync("dist/index.html", fullHtml, "utf-8");
     } else {
-      if (typeof data.category !== "undefined") {
-        fs.mkdirSync("dist/" + data.category);
+      if (typeof data.slug !== "undefined") {
+        fs.mkdirSync("dist/" + data.slug);
         fs.writeFileSync(
-          "dist/" + data.category + "/index.html",
+          "dist/" + data.slug + "/index.html",
           fullHtml,
           "utf-8"
         );
