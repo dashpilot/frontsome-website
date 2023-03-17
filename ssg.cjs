@@ -14,7 +14,7 @@ async function renderCat() {
   data.ssr = true;
 
   for (item of data.categories) {
-    data.category = item.id;
+    data.category = item.slug;
     data.slug = item.slug;
     data.isCat = true;
     data.isPost = false;
