@@ -146,7 +146,7 @@
   </nav>
 </header>
 
-<div class="main mt-5">
+<div class="main mt-5" id="page">
 
   
  {#if posts}
