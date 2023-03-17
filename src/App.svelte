@@ -35,7 +35,7 @@
     router.on("/", async function () {
       console.log("home")
       notfound = false;
-      posts = data.posts.filter(x=>x.category==1)
+      posts = data.posts.filter(x=>x.category=='home')
       
       hydrate('home')
     });
@@ -44,7 +44,7 @@
       router.on("/"+item.slug, async function () {
       
         notfound = false;
-        posts = data.posts.filter(x=>x.category==item.id)
+        posts = data.posts.filter(x=>x.category==item.slug)
         
         hydrate(item.slug);
       });
@@ -153,7 +153,7 @@
    {#each posts as item}
 
 
-     <section class="editable" id="{item.id}" data-fields="title=txt&amp;body=rte&amp;image=img&amp;delete=del">
+     <section class="editable" id="{item.id}">
        
        {#if item.image}<img src="{item.image}" class="mb-4 w-100" />{/if}
        
