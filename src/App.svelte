@@ -25,7 +25,7 @@
   
   onMount(async () => {
     var resp = await fetch(
-      "https://api.eu-central-1.linodeobjects.com/frontsome/data.json", {cache: "no-store"}
+      cfg.dataPath, {cache: "no-store"}
     );
     data = await resp.json();
     console.log(data)

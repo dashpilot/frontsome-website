@@ -11,6 +11,8 @@ async function renderCat() {
   );
   var data = await res.json();
 
+  fs.writeFileSync("dist/data.json", JSON.stringify(data), "utf-8");
+
   data.ssr = true;
 
   for (item of data.categories) {
@@ -40,6 +42,12 @@ async function renderCat() {
     />
    
     <link rel="stylesheet" href="/assets/index.css">
+    
+    <script>
+      cfg = {
+        dataPath: "/data.json",
+      };
+    </script>
     
     <script type="module" crossorigin src="/assets/index.js"></script>
     </head>
@@ -98,6 +106,12 @@ async function renderCat() {
       integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
       crossorigin="anonymous"
     />
+    
+    <script>
+      cfg = {
+        dataPath: "/data.json",
+      };
+    </script>
 
     <link rel="stylesheet" href="/assets/index.css">
     
